@@ -142,7 +142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &60
 GameObject:
   m_ObjectHideFlags: 0
@@ -2028,6 +2028,8 @@ GameObject:
   - component: {fileID: 378177675}
   - component: {fileID: 378177674}
   - component: {fileID: 378177673}
+  - component: {fileID: 378177679}
+  - component: {fileID: 378177678}
   m_Layer: 9
   m_Name: Button_Moter_1
   m_TagString: Untagged
@@ -2147,6 +2149,31 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 199.99998, y: 50, z: 0}
   m_Center: {x: -0.000015258789, y: 0.000009536743, z: 0.0000027682381}
+--- !u!114 &378177678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 378177671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4314d341c9f5d4744b3216fb60eb2853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &378177679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 378177671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 902f3e01499b2a2489c8ccad4221cba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onLabel: {fileID: 1846200213}
+  offLabel: {fileID: 737624040}
+  buttonState: 0
 --- !u!1 &386113174
 GameObject:
   m_ObjectHideFlags: 0
@@ -3101,7 +3128,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &737624039
 Transform:
   m_ObjectHideFlags: 0
@@ -3156,7 +3183,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 114404354081757348, guid: fe2ebb95216a06b4ca9ba8bb9cda8dc9, type: 2}
-  mText: Off
+  mText: "\uB054"
   mFontSize: 28
   mFontStyle: 1
   mAlignment: 0
@@ -5412,7 +5439,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 114404354081757348, guid: fe2ebb95216a06b4ca9ba8bb9cda8dc9, type: 2}
-  mText: On
+  mText: "\uCF1C \uAE30"
   mFontSize: 28
   mFontStyle: 1
   mAlignment: 0
@@ -5506,7 +5533,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1906237606
 Transform:
   m_ObjectHideFlags: 0

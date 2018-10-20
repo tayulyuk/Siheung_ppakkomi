@@ -9,5 +9,7 @@ public class ButtonManager : MonoBehaviour
     {
         if (transform.name == "Button - Exit")
             Application.Quit();
+        if (transform.name == "Button_Moter_1")
+            GetComponent<SwitchingManager>().SwitchMethod();
     }
 }
