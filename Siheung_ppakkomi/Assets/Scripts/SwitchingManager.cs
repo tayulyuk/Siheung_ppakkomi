@@ -16,7 +16,7 @@ public class SwitchingManager : MonoBehaviour
 
     void Start()
     {
-        buttonState = true;
+        buttonState = true; //씬이 시작하면서 서버로 부터 상태를 여기에 입력한다.
         SwitchMethod();
         SwitchMethod();
     }
@@ -28,7 +28,7 @@ public class SwitchingManager : MonoBehaviour
 
         onLabel.gameObject.SetActive(buttonState = !buttonState);
         offLabel.gameObject.SetActive(!buttonState);
-        //Debug.Log(buttonState = !buttonState);
+        //Debug.Log(buttonState = !buttonState);       
         return result;
     }
 

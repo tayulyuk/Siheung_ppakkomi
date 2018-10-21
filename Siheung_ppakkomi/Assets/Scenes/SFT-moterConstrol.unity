@@ -686,6 +686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4314d341c9f5d4744b3216fb60eb2853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pingPong: 0
 --- !u!4 &143
 Transform:
   m_ObjectHideFlags: 0
@@ -1889,7 +1890,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 114404354081757348, guid: fe2ebb95216a06b4ca9ba8bb9cda8dc9, type: 2}
-  mText: On
+  mText: "\uCF1C \uAE30"
   mFontSize: 28
   mFontStyle: 1
   mAlignment: 0
@@ -1987,7 +1988,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 114404354081757348, guid: fe2ebb95216a06b4ca9ba8bb9cda8dc9, type: 2}
-  mText: On
+  mText: "\uCF1C \uAE30"
   mFontSize: 28
   mFontStyle: 1
   mAlignment: 0
@@ -2160,6 +2161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4314d341c9f5d4744b3216fb60eb2853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pingPong: 0
 --- !u!114 &378177679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2549,6 +2551,8 @@ GameObject:
   - component: {fileID: 546989226}
   - component: {fileID: 546989225}
   - component: {fileID: 546989224}
+  - component: {fileID: 546989230}
+  - component: {fileID: 546989229}
   m_Layer: 9
   m_Name: Button_Moter_2
   m_TagString: Untagged
@@ -2668,6 +2672,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 199.99998, y: 50, z: 0}
   m_Center: {x: -0.000015258789, y: 0.000009536743, z: 0.0000027682381}
+--- !u!114 &546989229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 546989222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4314d341c9f5d4744b3216fb60eb2853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pingPong: 0
+--- !u!114 &546989230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 546989222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 902f3e01499b2a2489c8ccad4221cba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onLabel: {fileID: 644356284}
+  offLabel: {fileID: 2096795945}
+  buttonState: 0
 --- !u!1 &564323509
 GameObject:
   m_ObjectHideFlags: 0
@@ -2681,6 +2711,8 @@ GameObject:
   - component: {fileID: 564323513}
   - component: {fileID: 564323512}
   - component: {fileID: 564323511}
+  - component: {fileID: 564323517}
+  - component: {fileID: 564323516}
   m_Layer: 9
   m_Name: Button_Moter_4
   m_TagString: Untagged
@@ -2800,6 +2832,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 199.99998, y: 50, z: 0}
   m_Center: {x: -0.000015258789, y: 0.000009536743, z: 0.0000027682381}
+--- !u!114 &564323516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 564323509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4314d341c9f5d4744b3216fb60eb2853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pingPong: 0
+--- !u!114 &564323517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 564323509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 902f3e01499b2a2489c8ccad4221cba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onLabel: {fileID: 184578716}
+  offLabel: {fileID: 1329943910}
+  buttonState: 0
 --- !u!1 &586217366
 GameObject:
   m_ObjectHideFlags: 0
@@ -2813,6 +2871,8 @@ GameObject:
   - component: {fileID: 586217370}
   - component: {fileID: 586217369}
   - component: {fileID: 586217368}
+  - component: {fileID: 586217374}
+  - component: {fileID: 586217373}
   m_Layer: 9
   m_Name: Button_Moter_3
   m_TagString: Untagged
@@ -2932,6 +2992,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 199.99998, y: 50, z: 0}
   m_Center: {x: -0.000015258789, y: 0.000009536743, z: 0.0000027682381}
+--- !u!114 &586217373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 586217366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4314d341c9f5d4744b3216fb60eb2853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pingPong: 0
+--- !u!114 &586217374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 586217366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 902f3e01499b2a2489c8ccad4221cba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onLabel: {fileID: 1278564513}
+  offLabel: {fileID: 1259679520}
+  buttonState: 0
 --- !u!1 &644356282
 GameObject:
   m_ObjectHideFlags: 0
@@ -3002,10 +3088,10 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 114404354081757348, guid: fe2ebb95216a06b4ca9ba8bb9cda8dc9, type: 2}
-  mText: On
+  mText: "\uCF1C \uAE30"
   mFontSize: 28
   mFontStyle: 1
-  mAlignment: 0
+  mAlignment: 2
   mEncoding: 1
   mMaxLineCount: 0
   mEffectStyle: 0
@@ -3183,7 +3269,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 114404354081757348, guid: fe2ebb95216a06b4ca9ba8bb9cda8dc9, type: 2}
-  mText: "\uB054"
+  mText: "\uB044 \uAE30"
   mFontSize: 28
   mFontStyle: 1
   mAlignment: 0
@@ -3733,7 +3819,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1259679519
 Transform:
   m_ObjectHideFlags: 0
@@ -3777,18 +3863,18 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 42
+  mWidth: 66
   mHeight: 28
   mDepth: 20
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1.5
+  aspectRatio: 1.3571428
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 114404354081757348, guid: fe2ebb95216a06b4ca9ba8bb9cda8dc9, type: 2}
-  mText: Off
+  mText: "\uB044 \uAE30"
   mFontSize: 28
   mFontStyle: 1
   mAlignment: 0
@@ -3886,7 +3972,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 114404354081757348, guid: fe2ebb95216a06b4ca9ba8bb9cda8dc9, type: 2}
-  mText: On
+  mText: "\uCF1C \uAE30"
   mFontSize: 28
   mFontStyle: 1
   mAlignment: 0
@@ -4012,7 +4098,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1329943909
 Transform:
   m_ObjectHideFlags: 0
@@ -4056,18 +4142,18 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 42
+  mWidth: 66
   mHeight: 28
   mDepth: 20
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1.5
+  aspectRatio: 2.357143
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 114404354081757348, guid: fe2ebb95216a06b4ca9ba8bb9cda8dc9, type: 2}
-  mText: Off
+  mText: "\uB044 \uAE30"
   mFontSize: 28
   mFontStyle: 1
   mAlignment: 0
@@ -4829,7 +4915,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1583496342
 Transform:
   m_ObjectHideFlags: 0
@@ -4873,18 +4959,18 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 42
+  mWidth: 66
   mHeight: 28
   mDepth: 20
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1.5
+  aspectRatio: 1.3571428
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 114404354081757348, guid: fe2ebb95216a06b4ca9ba8bb9cda8dc9, type: 2}
-  mText: Off
+  mText: "\uB044 \uAE30"
   mFontSize: 28
   mFontStyle: 1
   mAlignment: 0
@@ -5106,6 +5192,9 @@ GameObject:
   - component: {fileID: 1641109251}
   - component: {fileID: 1641109250}
   - component: {fileID: 1641109249}
+  - component: {fileID: 1641109255}
+  - component: {fileID: 1641109254}
+  - component: {fileID: 1641109256}
   m_Layer: 9
   m_Name: Button_Power
   m_TagString: Untagged
@@ -5225,6 +5314,47 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 199.99998, y: 50, z: 0}
   m_Center: {x: -0.000015258789, y: 0.000009536743, z: 0.0000027682381}
+--- !u!114 &1641109254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1641109247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4314d341c9f5d4744b3216fb60eb2853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pingPong: 0
+--- !u!114 &1641109255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1641109247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 902f3e01499b2a2489c8ccad4221cba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onLabel: {fileID: 260877161}
+  offLabel: {fileID: 1583496343}
+  buttonState: 0
+--- !u!114 &1641109256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1641109247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac436e49e2c72834d9d3a615a2d800ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moterButtonObject_1: {fileID: 378177671}
+  moterButtonObject_2: {fileID: 546989222}
+  moterButtonObject_3: {fileID: 586217366}
+  moterButtonObject_4: {fileID: 564323509}
 --- !u!1 &1710377666
 GameObject:
   m_ObjectHideFlags: 0
@@ -5846,7 +5976,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2096795944
 Transform:
   m_ObjectHideFlags: 0
@@ -5890,21 +6020,21 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 42
+  mWidth: 66
   mHeight: 28
   mDepth: 20
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1.5
+  aspectRatio: 2.357143
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 114404354081757348, guid: fe2ebb95216a06b4ca9ba8bb9cda8dc9, type: 2}
-  mText: Off
+  mText: "\uB044 \uAE30"
   mFontSize: 28
   mFontStyle: 1
-  mAlignment: 0
+  mAlignment: 2
   mEncoding: 1
   mMaxLineCount: 0
   mEffectStyle: 0

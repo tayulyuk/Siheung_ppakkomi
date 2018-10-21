@@ -138,11 +138,7 @@
      <Compile Include="Assets\NGUI\Scripts\Editor\UIWidgetInspector.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIWrapContentEditor.cs" />
  <Reference Include="Unity.PackageManagerUI.Editor">
-<<<<<<< HEAD
- <HintPath>C:/SiheungProject/Siheung_ppakkomi/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
-=======
  <HintPath>C:/SiheungDev/Siheung_ppakkomi/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
->>>>>>> 6410ffb7188c63810c4c5f4d9ec7d8eaea3d83db
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity 2018.1.0b6/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
