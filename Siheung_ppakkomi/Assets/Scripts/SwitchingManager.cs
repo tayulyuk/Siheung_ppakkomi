@@ -17,11 +17,11 @@ public class SwitchingManager : MonoBehaviour
     void Start()
     {
         buttonState = true; //씬이 시작하면서 서버로 부터 상태를 여기에 입력한다.
-        SwitchMethod();
-        SwitchMethod();
+        //SwitchMethod();
+        //SwitchMethod();
     }
 
-    public string SwitchMethod()
+    public string SwitchMethod(bool buttonState)
     {
         string result = "";
 
@@ -30,11 +30,5 @@ public class SwitchingManager : MonoBehaviour
         offLabel.gameObject.SetActive(!buttonState);
         //Debug.Log(buttonState = !buttonState);       
         return result;
-    }
-
-    public enum ButtonState
-    {
-        on,
-        off
     }
 }

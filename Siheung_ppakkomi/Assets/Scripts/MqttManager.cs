@@ -7,8 +7,7 @@ using System;
 
 public class MqttManager : MonoBehaviour
 {
-    private MqttClient client;
-    public string currentStateMessage;
+    private MqttClient client;    
     public string PowerButtonState;
     public string Button_1_State;
     public string Button_2_State;
@@ -27,7 +26,7 @@ public class MqttManager : MonoBehaviour
         client.Connect(clientId);
 
         // subscribe to the topic "/home/temperature" with QoS 2 
-        client.Subscribe(new string[] { "siheung/namu/buttonState" }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
+        client.Subscribe(new string[] { "siheung/namu/button1" }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
     }
 
     public void GetAllButtonDataFromArduino()
@@ -39,7 +38,7 @@ public class MqttManager : MonoBehaviour
     /// <summary>
     /// 아두이노로 부터 버튼 정보를 모두 받아 입력한다.
     /// </summary>
-    void GetAllMessageButtonSetting()
+    void GetAllMessageButtonSetting(string currentStateMessage)
     {
         PowerButtonState = GetParserMessageToButton("power", currentStateMessage);
         Button_1_State = GetParserMessageToButton("1button", currentStateMessage);
@@ -100,24 +99,28 @@ public class MqttManager : MonoBehaviour
     }
    
     void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
-    {
-        currentStateMessage = System.Text.Encoding.UTF8.GetString(e.Message);
-        Debug.Log("Received: " + System.Text.Encoding.UTF8.GetString(e.Message));
+    {        
+        Debug.Log("M: " + System.Text.Encoding.UTF8.GetString(e.Message));
+        ///test 끝나고 다시 연결해라.
+        //AllMessageParsing(System.Text.Encoding.UTF8.GetString(e.Message));        
     }
 
-    private string GetParserString(string message, string order)
+    private void AllMessageParsing(string getMessage)
+    {
+        Button_1_State = GetParserString(getMessage, "|button1=", "|");
+        Button_2_State = GetParserString(getMessage, "|button2=", "|");
+        Button_3_State = GetParserString(getMessage, "|button3=", "|");
+        Button_4_State = GetParserString(getMessage, "|button4=", "|");
+        PowerButtonState = GetParserString(getMessage, "|buttonPower=", "|");
+    }
+
+    public string GetParserString(string message ,string startSearch,string endSearch)
     {
         string getValue = "";
         string search = "";
 
-        if (order == "temp")
-        {
-            search = "\"temperature\":";
-        }
-        if (order == "humi")
-        {
-            search = "\"humidity\":";
-        }
+        search = startSearch;        
+    
         int p = message.IndexOf(search);
         if (p >= 0)
         {
@@ -126,10 +129,7 @@ public class MqttManager : MonoBehaviour
             // now find the end by searching for the next closing tag starting at the start position, 
             // limiting the forward search to the max value length
             int end = 0;
-            if (order == "temp")
-                end = message.IndexOf(",", start);
-            if (order == "humi")
-                end = message.IndexOf("}", start);
+            end = message.IndexOf(endSearch, start);           
 
             if (end >= 0)
             {
@@ -138,10 +138,8 @@ public class MqttManager : MonoBehaviour
                 // finally parse into a float
                 // float value = float.Parse(v);
                 // Debug.Log("1classTemp Value = " + value);
-                if (order == "temp")
-                    getValue = v + " ℃";
-                if (order == "humi")
-                    getValue = v + " ％";
+              
+               getValue = v;                
             }
             else
             {
