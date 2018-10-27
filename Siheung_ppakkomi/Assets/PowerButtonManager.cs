@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 전원을 켰을때 나머지 버튼들이 활성화. (이번작업에선 사용하지 않는다)
+/// </summary>
 public class PowerButtonManager : MonoBehaviour {
 
     public GameObject moterButtonObject_1;

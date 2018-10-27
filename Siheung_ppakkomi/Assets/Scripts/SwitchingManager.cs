@@ -21,8 +21,18 @@ public class SwitchingManager : MonoBehaviour
         //SwitchMethod();
     }
 
-    public string SwitchMethod(bool buttonState)
+    public string SwitchMethod()
     {
+        if (transform.name == "Button_Power")
+            GameObject.Find("UI Root (3D)").GetComponent<MqttManager>().SendPublishButtonData("button1",
+        if (transform.name == "Button_Moter_1")
+            Debug.Log("send ok__Button_1");
+        if (transform.name == "Button_Moter_2")
+            Debug.Log("send ok__Button_2");
+        if (transform.name == "Button_Moter_3")
+            Debug.Log("send ok__Button_3");
+        if (transform.name == "Button_Moter_4")
+            Debug.Log("send ok__Button_4");
         string result = "";
 
 

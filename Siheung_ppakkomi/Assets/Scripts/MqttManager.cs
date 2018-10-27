@@ -13,6 +13,13 @@ public class MqttManager : MonoBehaviour
     public string Button_2_State;
     public string Button_3_State;
     public string Button_4_State;
+    public bool isOne; // broad cast 사용하기 위해.
+
+    public GameObject buttonPowerObject;
+    public GameObject button1Object;
+    public GameObject button2Object;
+    public GameObject button3Object;
+    public GameObject button4Object;
    
     void Start()
     {
@@ -26,84 +33,46 @@ public class MqttManager : MonoBehaviour
         client.Connect(clientId);
 
         // subscribe to the topic "/home/temperature" with QoS 2 
+       // client.Subscribe(new string[] { "siheung/namu/result" }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
         client.Subscribe(new string[] { "siheung/namu/button1" }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
     }
 
-    public void GetAllButtonDataFromArduino()
-    {
-       // client.Publish("siheung/namu/buttonState", System.Text.Encoding.Default.GetBytes("getButtoData"));
-      //  GetAllMessageButtonSetting();
-    }
-
     /// <summary>
-    /// 아두이노로 부터 버튼 정보를 모두 받아 입력한다.
+    /// 버튼 클릭 현재 정보를 전달한다.
     /// </summary>
-    void GetAllMessageButtonSetting(string currentStateMessage)
+    /// <param name="topic">버튼 주소</param>
+    public void SendPublishButtonData(string topic,string sendData)
     {
-        PowerButtonState = GetParserMessageToButton("power", currentStateMessage);
-        Button_1_State = GetParserMessageToButton("1button", currentStateMessage);
-        Button_2_State = GetParserMessageToButton("2button", currentStateMessage);
-        Button_3_State = GetParserMessageToButton("3button", currentStateMessage);
-        Button_4_State = GetParserMessageToButton("4button", currentStateMessage);
+        client.Publish("siheung/namu/" + topic, System.Text.Encoding.Default.GetBytes(sendData));     
     }
-
-    private string GetParserMessageToButton(string order, string message)
-    {
-         string getValue = "";
-        string search = "";
-           
-        if (order == "power")
-        {
-            search = ",power:";
-        }
-        if (order == "1button")
-        {
-            search = ",1button:";
-        }
-        if (order == "2button")
-        {
-            search = ",2button:";
-        }
-        if (order == "3button")
-        {
-            search = ",3button:";
-        }
-        if (order == "4button")
-        {
-            search = ",4button:";
-        }
-        int p = message.IndexOf(search);
-        if (p >= 0)
-        {
-            // move forward to the value
-            int start = p + search.Length;
-            // now find the end by searching for the next closing tag starting at the start position, 
-            // limiting the forward search to the max value length
-            int end = 0;
-                 end = message.IndexOf(",", start);
-
-            if (end >= 0)
-            {
-                // pull out the substring
-               getValue = message.Substring(start, end - start);
-                // finally parse into a float
-            }
-            else
-            {
-                Debug.Log("Bad html - closing tag not found");
-                Debug.Log(getValue);
-                getValue = "text error";
-            }
-        }
-        return getValue;
-    }
-   
+ 
     void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
     {        
         Debug.Log("M: " + System.Text.Encoding.UTF8.GetString(e.Message));
         ///test 끝나고 다시 연결해라.
-        //AllMessageParsing(System.Text.Encoding.UTF8.GetString(e.Message));        
+        AllMessageParsing(System.Text.Encoding.UTF8.GetString(e.Message));    
+        //각 버튼들 정렬 - 현재 받은 값으로
+      //  AllButtonsSetting();      
     }
+
+    void Update()
+    {
+        if (isOne)
+        {
+            AllButtonsSetting();
+            isOne = false;          
+        }
+    }
+
+    public void AllButtonsSetting()
+    {
+        buttonPowerObject.GetComponent<SwitchingManager>().SwitchMethod();
+        button1Object.GetComponent<SwitchingManager>().SwitchMethod();
+        button2Object.GetComponent<SwitchingManager>().SwitchMethod();
+        button3Object.GetComponent<SwitchingManager>().SwitchMethod();
+        button4Object.GetComponent<SwitchingManager>().SwitchMethod();
+    }
+       
 
     private void AllMessageParsing(string getMessage)
     {

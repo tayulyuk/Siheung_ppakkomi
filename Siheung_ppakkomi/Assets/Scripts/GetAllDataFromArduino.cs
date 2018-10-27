@@ -6,6 +6,6 @@ public class GetAllDataFromArduino : MonoBehaviour
 {
     void OnEnable()
     {
-        GameObject.Find("UI Root (3D)").GetComponent<MqttManager>().GetAllButtonDataFromArduino();
+      //  GameObject.Find("UI Root (3D)").GetComponent<MqttManager>().GetAllButtonDataFromArduino();
     }
 }
