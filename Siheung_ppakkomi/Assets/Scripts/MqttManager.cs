@@ -55,6 +55,16 @@ public class MqttManager : MonoBehaviour
       //  AllButtonsSetting();      
     }
 
+    /// <summary>
+    /// 단순한 메시지 변환 1->true   0->false
+    /// </summary>
+    /// <param name="message">변환할 문자.</param>
+    /// <returns></returns>
+    public bool GetBoolMessageChange(string message)
+    {
+        return message == "1";
+    }
+
     void Update()
     {
         if (isOne)
@@ -64,16 +74,22 @@ public class MqttManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 서버로 부터 받은 정보를 각각의 버튼들에게 전달한다.
+    /// </summary>
     public void AllButtonsSetting()
     {
-        buttonPowerObject.GetComponent<SwitchingManager>().SwitchMethod();
-        button1Object.GetComponent<SwitchingManager>().SwitchMethod();
-        button2Object.GetComponent<SwitchingManager>().SwitchMethod();
-        button3Object.GetComponent<SwitchingManager>().SwitchMethod();
-        button4Object.GetComponent<SwitchingManager>().SwitchMethod();
+        buttonPowerObject.GetComponent<SwitchingManager>().SetSwitching(GetBoolMessageChange(PowerButtonState));
+        button1Object.GetComponent<SwitchingManager>().SetSwitching(GetBoolMessageChange(Button_1_State));
+        button2Object.GetComponent<SwitchingManager>().SetSwitching(GetBoolMessageChange(Button_1_State));
+        button3Object.GetComponent<SwitchingManager>().SetSwitching(GetBoolMessageChange(Button_1_State));
+        button4Object.GetComponent<SwitchingManager>().SetSwitching(GetBoolMessageChange(Button_1_State));
     }
        
-
+    /// <summary>
+    /// 서버로 부터 받은 정보를 각 변수에 저장한다.
+    /// </summary>
+    /// <param name="getMessage">서버로 부터 받은 정보.</param>
     private void AllMessageParsing(string getMessage)
     {
         Button_1_State = GetParserString(getMessage, "|button1=", "|");
@@ -83,6 +99,13 @@ public class MqttManager : MonoBehaviour
         PowerButtonState = GetParserString(getMessage, "|buttonPower=", "|");
     }
 
+    /// <summary>
+    /// 서버로 부터 받은 정보를 나눈다.
+    /// </summary>
+    /// <param name="message">서버 data</param>
+    /// <param name="startSearch">시작문구</param>
+    /// <param name="endSearch">끝 문구</param>
+    /// <returns></returns>
     public string GetParserString(string message ,string startSearch,string endSearch)
     {
         string getValue = "";
