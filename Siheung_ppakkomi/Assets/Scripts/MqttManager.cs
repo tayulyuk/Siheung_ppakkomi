@@ -34,7 +34,7 @@ public class MqttManager : MonoBehaviour
 
         // subscribe to the topic "/home/temperature" with QoS 2 
        // client.Subscribe(new string[] { "siheung/namu/result" }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
-        client.Subscribe(new string[] { "siheung/namu/button1" }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
+        client.Subscribe(new string[] { "siheung/namu/result" }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
     }
 
     /// <summary>
@@ -52,7 +52,7 @@ public class MqttManager : MonoBehaviour
         ///test 끝나고 다시 연결해라.
         AllMessageParsing(System.Text.Encoding.UTF8.GetString(e.Message));    
         //각 버튼들 정렬 - 현재 받은 값으로
-      //  AllButtonsSetting();      
+        isOne = true;   
     }
 
     /// <summary>
@@ -61,17 +61,48 @@ public class MqttManager : MonoBehaviour
     /// <param name="message">변환할 문자.</param>
     /// <returns></returns>
     public bool GetBoolMessageChange(string message)
-    {
-        return message == "1";
+    {        
+        bool v = false;
+        if (message == "1")
+        {
+            v = true;
+            Debug.Log("true -> " + v);
+        }
+        else if (message == "0")
+        {
+            v = false;
+            Debug.Log("true -> " + v);
+        }
+        else if (message == "")
+        {
+            v = false;
+            Debug.Log("empty message");
+        }
+        else
+        {
+            v = false;
+            Debug.Log("else message : " + message);
+        }
+        return v;
     }
 
     void Update()
     {
         if (isOne)
         {
-            AllButtonsSetting();
+            StartCoroutine(AllButtonSet());            
             isOne = false;          
         }
+    }
+
+    /// <summary>
+    /// 약간의 딜레이를 주기 위해.
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator AllButtonSet()
+    {        
+        yield return new WaitForSeconds(.1f);
+        AllButtonsSetting();
     }
 
     /// <summary>
@@ -81,9 +112,9 @@ public class MqttManager : MonoBehaviour
     {
         buttonPowerObject.GetComponent<SwitchingManager>().SetSwitching(GetBoolMessageChange(PowerButtonState));
         button1Object.GetComponent<SwitchingManager>().SetSwitching(GetBoolMessageChange(Button_1_State));
-        button2Object.GetComponent<SwitchingManager>().SetSwitching(GetBoolMessageChange(Button_1_State));
-        button3Object.GetComponent<SwitchingManager>().SetSwitching(GetBoolMessageChange(Button_1_State));
-        button4Object.GetComponent<SwitchingManager>().SetSwitching(GetBoolMessageChange(Button_1_State));
+        button2Object.GetComponent<SwitchingManager>().SetSwitching(GetBoolMessageChange(Button_2_State));
+        button3Object.GetComponent<SwitchingManager>().SetSwitching(GetBoolMessageChange(Button_3_State));
+        button4Object.GetComponent<SwitchingManager>().SetSwitching(GetBoolMessageChange(Button_4_State));
     }
        
     /// <summary>
@@ -93,10 +124,10 @@ public class MqttManager : MonoBehaviour
     private void AllMessageParsing(string getMessage)
     {
         Button_1_State = GetParserString(getMessage, "|button1=", "|");
-        Button_2_State = GetParserString(getMessage, "|button2=", "|");
-        Button_3_State = GetParserString(getMessage, "|button3=", "|");
-        Button_4_State = GetParserString(getMessage, "|button4=", "|");
-        PowerButtonState = GetParserString(getMessage, "|buttonPower=", "|");
+        Button_2_State = GetParserString(getMessage, "button2=", "|");
+        Button_3_State = GetParserString(getMessage, "button3=", "|");
+        Button_4_State = GetParserString(getMessage, "button4=", "|");
+        PowerButtonState = GetParserString(getMessage, "buttonPower=", "|");
     }
 
     /// <summary>
@@ -141,4 +172,5 @@ public class MqttManager : MonoBehaviour
         }
         return getValue;
     }
+
 }

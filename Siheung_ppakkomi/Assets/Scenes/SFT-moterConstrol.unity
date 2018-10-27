@@ -439,11 +439,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c838ade6b5f64f45bb4226ef54b8578, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PowerButtonState: 1
+  PowerButtonState: 0
   Button_1_State: 0
-  Button_2_State: 1
+  Button_2_State: 0
   Button_3_State: 0
-  Button_4_State: 1
+  Button_4_State: 0
   isOne: 0
   buttonPowerObject: {fileID: 1641109247}
   button1Object: {fileID: 378177671}
@@ -2180,7 +2180,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onLabel: {fileID: 1846200213}
   offLabel: {fileID: 737624040}
-  buttonState: 0
 --- !u!1 &386113174
 GameObject:
   m_ObjectHideFlags: 0
@@ -2702,7 +2701,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onLabel: {fileID: 644356284}
   offLabel: {fileID: 2096795945}
-  buttonState: 0
 --- !u!1 &564323509
 GameObject:
   m_ObjectHideFlags: 0
@@ -2862,7 +2860,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onLabel: {fileID: 184578716}
   offLabel: {fileID: 1329943910}
-  buttonState: 0
 --- !u!1 &586217366
 GameObject:
   m_ObjectHideFlags: 0
@@ -3022,7 +3019,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onLabel: {fileID: 1278564513}
   offLabel: {fileID: 1259679520}
-  buttonState: 0
 --- !u!1 &644356282
 GameObject:
   m_ObjectHideFlags: 0
@@ -5343,7 +5339,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onLabel: {fileID: 260877161}
   offLabel: {fileID: 1583496343}
-  buttonState: 0
 --- !u!1 &1710377666
 GameObject:
   m_ObjectHideFlags: 0

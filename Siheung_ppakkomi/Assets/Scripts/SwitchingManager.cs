@@ -9,27 +9,28 @@ using UnityEngine;
 /// </summary>
 public class SwitchingManager : MonoBehaviour
 {
-
     public UILabel onLabel;
-    public UILabel offLabel;
-    public bool buttonState;
-    public MqttManager mqttManager;
-    void Start()
+    public UILabel offLabel;      
+   
+
+    /// <summary>
+    /// 서버로 부터 받은 버튼 정보를 보여준다.
+    /// </summary>
+    public void SetSwitching(bool buttonState)
     {
-        buttonState = true; //씬이 시작하면서 서버로 부터 상태를 여기에 입력한다.
-        //SwitchMethod();
-        //SwitchMethod();
-        mqttManager = GameObject.Find("UI Root (3D)").GetComponent<MqttManager>();
+        onLabel.gameObject.SetActive(buttonState);
+        offLabel.gameObject.SetActive(!buttonState);      
     }
+
 
     /// <summary>
     /// 버튼 클릭시 서버로 1&0 값을 보낸다.
     /// </summary>
-    public void SwitchMethod()
+    public void SendSwitchData()
     {
+        MqttManager mqttManager = GameObject.Find("UI Root (3D)").GetComponent<MqttManager>();
         if (transform.name == "Button_Power")
-            //mqttManager.SendPublishButtonData("buttonPower", (mqttManager.PowerButtonState == "1")?"0":"1");
-            mqttManager.SendPublishButtonData("buttonPower", "1");
+            mqttManager.SendPublishButtonData("buttonPower", (mqttManager.PowerButtonState == "1") ? "0" : "1");
         if (transform.name == "Button_Moter_1")
             mqttManager.SendPublishButtonData("button1", (mqttManager.Button_1_State == "1") ? "0" : "1");
         if (transform.name == "Button_Moter_2")
@@ -38,15 +39,5 @@ public class SwitchingManager : MonoBehaviour
             mqttManager.SendPublishButtonData("button3", (mqttManager.Button_3_State == "1") ? "0" : "1");
         if (transform.name == "Button_Moter_4")
             mqttManager.SendPublishButtonData("button4", (mqttManager.Button_4_State == "1") ? "0" : "1");
-    }
-
-    /// <summary>
-    /// 서버로 부터 받은 버튼 정보를 보여준다.
-    /// </summary>
-    public void SetSwitching(bool buttonState)
-    {
-        onLabel.gameObject.SetActive(buttonState = !buttonState);
-        offLabel.gameObject.SetActive(!buttonState);
-        //Debug.Log(buttonState = !buttonState);   
     }
 }
