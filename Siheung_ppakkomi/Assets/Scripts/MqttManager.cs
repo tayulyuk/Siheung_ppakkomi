@@ -22,7 +22,9 @@ public class MqttManager : MonoBehaviour
     public GameObject button4Object;
 
     public GameObject errorPopUpObject;
+    public GameObject reConnectPopUpObject;
     public bool isError; // error message 들어오면 팝업 띠워주자.
+    public bool isReConnect; // 아두이노 wifi통신이 다시 접속했다는 메시지 창.
 
     void Start()
     {
@@ -32,11 +34,11 @@ public class MqttManager : MonoBehaviour
         // register to message received 
         client.MqttMsgPublishReceived += client_MqttMsgPublishReceived;
 
-        string clientId = Guid.NewGuid().ToString();
+       // string clientId = Guid.NewGuid().ToString();
+        string clientId = "siheung_namu_moter";
         client.Connect(clientId);
 
         // subscribe to the topic "/home/temperature" with QoS 2 
-       // client.Subscribe(new string[] { "siheung/namu/result" }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
         client.Subscribe(new string[] { "siheung/namu/result" }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
     }
 
@@ -52,6 +54,11 @@ public class MqttManager : MonoBehaviour
     void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
     {        
         Debug.Log("M: " + System.Text.Encoding.UTF8.GetString(e.Message));
+
+        //moter constroler의 wifi가 불안정하여 다시 접속했다.
+        if (System.Text.Encoding.UTF8.GetString(e.Message) == "Reconnected")
+            isReConnect = true;
+
         ///test 끝나고 다시 연결해라.
         AllMessageParsing(System.Text.Encoding.UTF8.GetString(e.Message));    
         //각 버튼들 정렬 - 현재 받은 값으로
@@ -96,6 +103,8 @@ public class MqttManager : MonoBehaviour
         //팝업 메시지 띠우기.
        errorPopUpObject.SetActive(isError);
        
+        //아두이도 접속 창 띠우기.
+       reConnectPopUpObject.SetActive(isReConnect);
     }
 
     /// <summary>

@@ -11,10 +11,12 @@ public class ButtonManager : MonoBehaviour
     {
         mqttManager = GameObject.Find("UI Root (3D)").GetComponent<MqttManager>();
         pingPong = false;
-        SendAllButtonSetting();
+        //SendAllButtonSetting();
     }
     private void OnClick()
     {
+        if (transform.name == "reConnectButton")
+            mqttManager.isReConnect = false;
         if (transform.name == "errorButton")
             mqttManager.isError = false;
         if (transform.name == "Button - Exit")
@@ -43,6 +45,8 @@ public class ButtonManager : MonoBehaviour
             v = "0";
         if (order == "0")
             v = "1";
+        else
+            v = "0";
         return v;
     }
 
