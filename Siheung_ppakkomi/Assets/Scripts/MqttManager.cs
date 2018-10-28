@@ -13,14 +13,17 @@ public class MqttManager : MonoBehaviour
     public string Button_2_State;
     public string Button_3_State;
     public string Button_4_State;
-    public bool isOne; // broad cast 사용하기 위해.
+    public bool isOne; // broad cast 사용하기 위해.    
 
     public GameObject buttonPowerObject;
     public GameObject button1Object;
     public GameObject button2Object;
     public GameObject button3Object;
     public GameObject button4Object;
-   
+
+    public GameObject errorPopUpObject;
+    public bool isError; // error message 들어오면 팝업 띠워주자.
+
     void Start()
     {
         // create client instance 
@@ -63,25 +66,21 @@ public class MqttManager : MonoBehaviour
     public bool GetBoolMessageChange(string message)
     {        
         bool v = false;
-        if (message == "1")
-        {
+        if (message == "1")  
             v = true;
-            Debug.Log("true -> " + v);
-        }
-        else if (message == "0")
+        else if (message == "0")     
+            v = false;
+        else if (message == " " && message == null)
         {
             v = false;
-            Debug.Log("true -> " + v);
-        }
-        else if (message == "")
+            isError = true;
+            Debug.Log("empty message:" + v);
+        }        
+        else 
         {
             v = false;
-            Debug.Log("empty message");
-        }
-        else
-        {
-            v = false;
-            Debug.Log("else message : " + message);
+            isError = true;
+            Debug.Log("잘못된 명령 메시지 입니다. : " + message + ":" + v);
         }
         return v;
     }
@@ -93,6 +92,10 @@ public class MqttManager : MonoBehaviour
             StartCoroutine(AllButtonSet());            
             isOne = false;          
         }
+
+        //팝업 메시지 띠우기.
+       errorPopUpObject.SetActive(isError);
+       
     }
 
     /// <summary>
