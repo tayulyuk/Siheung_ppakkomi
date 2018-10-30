@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-C:/NewPpakkomi/ppakkomi/siheungMoterControler.apk
+C:/SiheungDev/Siheung_ppakkomi/newSiheung.apk
 SceneListBegin?
 Assets/Scenes/SFT-moterConstrol.unity
 SceneListEnd?
