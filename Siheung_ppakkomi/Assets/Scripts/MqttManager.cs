@@ -34,8 +34,8 @@ public class MqttManager : MonoBehaviour
         // register to message received 
         client.MqttMsgPublishReceived += client_MqttMsgPublishReceived;
 
-       // string clientId = Guid.NewGuid().ToString();
-        string clientId = "siheung_namu_moter";
+        string clientId = Guid.NewGuid().ToString();
+        //string clientId = "siheung_namu_moter";
         client.Connect(clientId);
 
         // subscribe to the topic "/home/temperature" with QoS 2 
