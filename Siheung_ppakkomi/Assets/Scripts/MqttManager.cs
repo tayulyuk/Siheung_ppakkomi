@@ -7,7 +7,7 @@ using System;
 
 public class MqttManager : MonoBehaviour
 {
-    private MqttClient client;    
+    private MqttClient client;
     public string PowerButtonState;
     public string Button_1_State;
     public string Button_2_State;
@@ -46,13 +46,13 @@ public class MqttManager : MonoBehaviour
     /// 버튼 클릭 현재 정보를 전달한다.
     /// </summary>
     /// <param name="topic">버튼 주소</param>
-    public void SendPublishButtonData(string topic,string sendData)
+    public void SendPublishButtonData(string topic, string sendData)
     {
-        client.Publish("siheung/namu/" + topic, System.Text.Encoding.Default.GetBytes(sendData));     
+        client.Publish("siheung/namu/" + topic, System.Text.Encoding.Default.GetBytes(sendData));
     }
- 
+
     void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
-    {        
+    {
         Debug.Log("M: " + System.Text.Encoding.UTF8.GetString(e.Message));
 
         //moter constroler의 wifi가 불안정하여 다시 접속했다.
@@ -60,9 +60,9 @@ public class MqttManager : MonoBehaviour
             isReConnect = true;
 
         ///test 끝나고 다시 연결해라.
-        AllMessageParsing(System.Text.Encoding.UTF8.GetString(e.Message));    
+        AllMessageParsing(System.Text.Encoding.UTF8.GetString(e.Message));
         //각 버튼들 정렬 - 현재 받은 값으로
-        isOne = true;   
+        isOne = true;
     }
 
     /// <summary>
@@ -71,19 +71,19 @@ public class MqttManager : MonoBehaviour
     /// <param name="message">변환할 문자.</param>
     /// <returns></returns>
     public bool GetBoolMessageChange(string message)
-    {        
+    {
         bool v = false;
-        if (message == "1")  
+        if (message == "1")
             v = true;
-        else if (message == "0")     
+        else if (message == "0")
             v = false;
         else if (message == " " && message == null)
         {
             v = false;
             isError = true;
             Debug.Log("empty message:" + v);
-        }        
-        else 
+        }
+        else
         {
             v = false;
             isError = true;
@@ -96,15 +96,15 @@ public class MqttManager : MonoBehaviour
     {
         if (isOne)
         {
-            StartCoroutine(AllButtonSet());            
-            isOne = false;          
+            StartCoroutine(AllButtonSet());
+            isOne = false;
         }
 
         //팝업 메시지 띠우기.
-       errorPopUpObject.SetActive(isError);
-       
+        errorPopUpObject.SetActive(isError);
+
         //아두이도 접속 창 띠우기.
-       reConnectPopUpObject.SetActive(isReConnect);
+        reConnectPopUpObject.SetActive(isReConnect);
     }
 
     /// <summary>
@@ -112,7 +112,7 @@ public class MqttManager : MonoBehaviour
     /// </summary>
     /// <returns></returns>
     private IEnumerator AllButtonSet()
-    {        
+    {
         yield return new WaitForSeconds(.1f);
         AllButtonsSetting();
     }
@@ -128,7 +128,7 @@ public class MqttManager : MonoBehaviour
         button3Object.GetComponent<SwitchingManager>().SetSwitching(GetBoolMessageChange(Button_3_State));
         button4Object.GetComponent<SwitchingManager>().SetSwitching(GetBoolMessageChange(Button_4_State));
     }
-       
+
     /// <summary>
     /// 서버로 부터 받은 정보를 각 변수에 저장한다.
     /// </summary>
@@ -149,13 +149,13 @@ public class MqttManager : MonoBehaviour
     /// <param name="startSearch">시작문구</param>
     /// <param name="endSearch">끝 문구</param>
     /// <returns></returns>
-    public string GetParserString(string message ,string startSearch,string endSearch)
+    public string GetParserString(string message, string startSearch, string endSearch)
     {
         string getValue = "";
         string search = "";
 
-        search = startSearch;        
-    
+        search = startSearch;
+
         int p = message.IndexOf(search);
         if (p >= 0)
         {
@@ -164,7 +164,7 @@ public class MqttManager : MonoBehaviour
             // now find the end by searching for the next closing tag starting at the start position, 
             // limiting the forward search to the max value length
             int end = 0;
-            end = message.IndexOf(endSearch, start);           
+            end = message.IndexOf(endSearch, start);
 
             if (end >= 0)
             {
@@ -173,8 +173,8 @@ public class MqttManager : MonoBehaviour
                 // finally parse into a float
                 // float value = float.Parse(v);
                 // Debug.Log("1classTemp Value = " + value);
-              
-               getValue = v;                
+
+                getValue = v;
             }
             else
             {

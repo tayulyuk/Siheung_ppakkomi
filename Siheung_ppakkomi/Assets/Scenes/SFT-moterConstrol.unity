@@ -1124,14 +1124,14 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 84
+  mWidth: 86
   mHeight: 28
   mDepth: 20
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 3
+  aspectRatio: 3.0714285
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 114404354081757348, guid: fe2ebb95216a06b4ca9ba8bb9cda8dc9, type: 2}
@@ -1419,14 +1419,14 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 122
+  mWidth: 124
   mHeight: 28
   mDepth: 20
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 4.357143
+  aspectRatio: 4.428571
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 114404354081757348, guid: fe2ebb95216a06b4ca9ba8bb9cda8dc9, type: 2}
@@ -1982,7 +1982,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 114404354081757348, guid: fe2ebb95216a06b4ca9ba8bb9cda8dc9, type: 2}
-  mText: "\uAEBC \uC9D0"
+  mText: "\uCF1C \uC9D0"
   mFontSize: 28
   mFontStyle: 1
   mAlignment: 0
@@ -2080,7 +2080,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 114404354081757348, guid: fe2ebb95216a06b4ca9ba8bb9cda8dc9, type: 2}
-  mText: "\uAEBC \uC9D0"
+  mText: "\uCF1C \uC9D0"
   mFontSize: 28
   mFontStyle: 1
   mAlignment: 0
@@ -3275,7 +3275,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 114404354081757348, guid: fe2ebb95216a06b4ca9ba8bb9cda8dc9, type: 2}
-  mText: "\uAEBC \uC9D0"
+  mText: "\uCF1C \uC9D0"
   mFontSize: 28
   mFontStyle: 1
   mAlignment: 2
@@ -3456,7 +3456,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 114404354081757348, guid: fe2ebb95216a06b4ca9ba8bb9cda8dc9, type: 2}
-  mText: "\uCF1C \uC9D0"
+  mText: "\uAEBC \uC9D0"
   mFontSize: 28
   mFontStyle: 1
   mAlignment: 0
@@ -4229,7 +4229,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 114404354081757348, guid: fe2ebb95216a06b4ca9ba8bb9cda8dc9, type: 2}
-  mText: "\uCF1C \uC9D0"
+  mText: "\uAEBC \uC9D0"
   mFontSize: 28
   mFontStyle: 1
   mAlignment: 0
@@ -4327,7 +4327,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 114404354081757348, guid: fe2ebb95216a06b4ca9ba8bb9cda8dc9, type: 2}
-  mText: "\uAEBC \uC9D0"
+  mText: "\uCF1C \uC9D0"
   mFontSize: 28
   mFontStyle: 1
   mAlignment: 0
@@ -4508,7 +4508,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 114404354081757348, guid: fe2ebb95216a06b4ca9ba8bb9cda8dc9, type: 2}
-  mText: "\uCF1C \uC9D0"
+  mText: "\uAEBC \uC9D0"
   mFontSize: 28
   mFontStyle: 1
   mAlignment: 0
@@ -5608,7 +5608,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 114404354081757348, guid: fe2ebb95216a06b4ca9ba8bb9cda8dc9, type: 2}
-  mText: "\uCF1C \uC9D0"
+  mText: "\uAEBC \uC9D0"
   mFontSize: 28
   mFontStyle: 1
   mAlignment: 0
@@ -6386,7 +6386,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 114404354081757348, guid: fe2ebb95216a06b4ca9ba8bb9cda8dc9, type: 2}
-  mText: "\uAEBC \uC9D0"
+  mText: "\uCF1C \uC9D0"
   mFontSize: 28
   mFontStyle: 1
   mAlignment: 0
@@ -6948,7 +6948,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 114404354081757348, guid: fe2ebb95216a06b4ca9ba8bb9cda8dc9, type: 2}
-  mText: "\uCF1C \uC9D0"
+  mText: "\uAEBC \uC9D0"
   mFontSize: 28
   mFontStyle: 1
   mAlignment: 2
